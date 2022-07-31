@@ -4,7 +4,7 @@ import six
 
 from django import forms
 from django.db.models import TextField
-from django.utils.encoding import smart_text
+from django.utils.encoding import smart_str
 
 from .registry import app_registry
 from .containers import AppDataContainerFactory
@@ -73,7 +73,7 @@ class AppDataField(TextField):
         if isinstance(value, dict):
             value = json.dumps(value)
 
-        return smart_text(value)
+        return smart_str(value)
 
 
 class ListModelMultipleChoiceField(forms.ModelMultipleChoiceField):
